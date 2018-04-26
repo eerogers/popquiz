@@ -8,10 +8,109 @@
   <link rel="stylesheet" href="./assets/css/styles.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
     crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Acme|Black+And+White+Picture|Dokdo|Gugi|Stylish" rel="stylesheet">
+  <style>
+  body {
+    background-color: slateblue;
+  }
+  p, h2 {
+    color: white;
+    font-size: 25px;
+    font-family: 'Stylish', sans-serif;
+  }
+  .jumbotron {
+    color: lavender;
+    background-color: black;
+    padding: 20px;
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+    text-align: center;
+    font-size: 100px;
+    /* font-family: 'Gugi', cursive; */
+    font-family: 'Black And White Picture', sans-serif;
+    /*font-family: 'Black And White Picture', sans-serif;
+    font-family: 'Acme', sans-serif;
+    font-family: 'Dokdo', cursive; */
+  }
+  .col-md-3, .col-md-6 {
+    text-align: center;
+    padding: 20px;
+  }
+  button {
+    font-family: 'Stylish', sans-serif;
+    font-size: 20px;
+    margin: 20px 0px 0px 0px;
+    padding: 15px 20px 15px 20px;
+    border-radius: 20px;
+    background-color: lightseagreen;
+    color: white;
+    border-width: 2px;
+  }
+  </style>
 </head>
 <body>
   {{{ body }}}
   <script src="./assets/js/friends.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    // Capture the form inputs
+    $("#submit").on("click", function(event) {
+      event.preventDefault();
+
+      // Form validation
+      function validateForm() {
+        var isValid = true;
+        $(".form-control").each(function() {
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+
+        $(".chosen-select").each(function() {
+
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+        return isValid;
+      }
+
+      // If all required fields are filled
+      if (validateForm()) {
+        // Create an object for the user"s data
+        var userData = {
+          photo: $("#photo").val(), 
+          group: "people, 
+          name: $("#name").val(),
+          scores: [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+          ]
+        }
+        // AJAX post the data to the friends API.
+        $.post("/api", userData, function(data) {
+
+          // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+          $("#match-name").text(data.name);
+          $("#match-img").attr("src", data.photo);
+
+          // Show the modal with the best match
+          $("#results-modal").modal("toggle");
+
+        });
+      } else {
+        alert("Please fill out all fields before submitting!");
+      }
+    });
+  </script>
 </body>
 </html>

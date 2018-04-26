@@ -21,7 +21,7 @@ app.use(bodyparser.json())
 
 app.listen(3000)
 
-//app.use(express.static(path.join(__dirname + 'views')))
+app.use(express.static(path.join(__dirname + 'views')))
 var groupResults = {"results": []}
 
 function connect(){
@@ -33,30 +33,33 @@ function end(){
 connect()
 app.get('/', function(req,res) {
   res.render('index')
-})
+  })
 app.get('/quiz', function(req,res) {
   res.render('quiz')
   })
-app.get('/api', function(req, res) {
+app.get('/results', function(req, res) {
  connection.query('SELECT * FROM personalityResults', function (error, results, fields) {
     if (error) throw error;
     //console.log(results[0].id)
     for (i=0; i<results.length;i++){
-      groupResults.results.push({"id": results[i].id, 
-                        "one": results[i].qONE, 
-                        "two": results[i].qTWO,
-                        "three": results[i].qTHREE,
-                        "four": results[i].qFOUR,
-                        "five": results[i].qFIVE,
-                        "six": results[i].qSIX,
-                        "seven": results[i].qSEVEN,
-                        "eight": results[i].qEIGHT,
-                        "nine": results[i].qNINE,
-                        "ten": results[i].qTEN,
-                        "group": results[i].whatgroup,
-                        "name": results[i].name})
+      groupResults.results.push({
+        photo: "photo here",
+        group: results[i].whatgroup,
+        name: results[i].name,
+        scores: [ 
+        results[i].qONE, 
+        results[i].qTWO,
+        results[i].qTHREE,
+        results[i].qFOUR,
+        results[i].qFIVE,
+        results[i].qSIX,
+        results[i].qSEVEN,
+        results[i].qEIGHT,
+        results[i].qNINE,
+        results[i].qTEN]
+      })
     }                  
     console.log(groupResults)
-    res.send(groupResults)
+    res.render('results', groupResults)
   })
 })

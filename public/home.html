@@ -8,8 +8,46 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Acme|Black+And+White+Picture|Dokdo|Gugi|Stylish" rel="stylesheet">
+<style>
+    body {
+    background-color: white;
+}
+p {
+    color: url("/stars.jpeg");
+    font-size: 25px;
+    font-family: 'Stylish', sans-serif;
+}
+.jumbotron {
+    color: lavender;
+    background-image: url("stars.jpeg");
+    padding: 20px;
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+    text-align: center;
+    font-size: 100px;
+    /* font-family: 'Gugi', cursive; */
+    font-family: 'Black And White Picture', sans-serif;
+    /*font-family: 'Black And White Picture', sans-serif;
+    font-family: 'Acme', sans-serif;
+    font-family: 'Dokdo', cursive; */
+}
+.col-md-3, .col-md-6 {
+    text-align: center;
+    padding: 20px;
+}
+button {
+    font-family: 'Stylish', sans-serif;
+    font-size: 20px;
+    margin: 20px 0px 0px 0px;
+    padding: 15px 20px 15px 20px;
+    border-radius: 20px;
+    background-image: url("stars.jpeg");
+    color: white;
+    border-width: 2px;
+}
+</style>
 </head>
 <body>
 <div class="container">
@@ -17,8 +55,8 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <button>TAKE THE QUIZ</button>
-            <button>LOGIN</button>
+            <a href="/quiz"><button id="take-quiz">TAKE THE QUIZ</button></a>
+            <button id="login">LOGIN</button>
         </div>
         <div class="col-md-9">
             <p>Upon completing the questions in this "pop quiz", you will be able to access several different comparisons.</p> 
@@ -27,15 +65,38 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" 
 integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" 
-crossorigin="anonymous"></script> 
+crossorigin="anonymous"></script>
 <script>
-$(document).ready(function() {
- 
+$(document).ready(function(){
+
+$("#take-quiz").on("click", function(){
+    console.log("yep")
+   // form()
 })
-</script>
+    
+function form() {
+    var userData = {
+        photo: $("#photo").val(), 
+        group: "people", 
+        name: $("#name").val(),
+        scores: [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+        ]
+    }
+    console.log(userData)
+}
+})
+</script> 
 </body>
 </html>

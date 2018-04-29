@@ -8,7 +8,7 @@ p {
 }
 .jumbotron {
     color: lavender;
-    background-image: url("images/stars.jpeg");
+    background-image: url("../images/stars.jpeg");
     padding: 20px;
     border-color: white;
     border-style: solid;
@@ -31,7 +31,7 @@ button {
     margin: 20px 0px 0px 0px;
     padding: 15px 20px 15px 20px;
     border-radius: 20px;
-    background-image: url("images/stars.jpeg");
+    background-image: url("../images/stars.jpeg");
     color: white;
     border-width: 2px;
 }

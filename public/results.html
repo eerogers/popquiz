@@ -51,19 +51,24 @@ button {
 </head>
 <body>
 <div class="container">
-    <div class="jumbotron">POP QUIZ
+    <div class="jumbotron">RESULTS
     </div>
     <div class="row">
-        <div class="col-md-3">
-            <a href="/quiz"><button id="take-quiz">TAKE THE QUIZ</button></a>
-            <button id="login">LOGIN</button>
+        <div class="col-md-6">
+            <a href="/users"><button id="user-compare">OTHER USERS</button></a>
         </div>
-        <div class="col-md-9">
-            <p>Upon completing the questions in this "pop quiz", you will be able to access several different comparisons.</p> 
-            <p>You may choose to compare your results with other users, but there are also pop culture filters.</p>
-            <p>Apply as many filters as you want! Find out which Friends character you are most like! Etcetera!</p>
+        <div class="col-md-6">
+            <a href="/friends"><button id="user-compare">FRIENDS CHARACTERS</button></a>
         </div>
     </div>
+    <div class="row">
+            <div class="col-md-6">
+                <a href="/princesses"><button id="user-compare">DISNEY PRINCESSES</button></a>
+            </div>
+            <div class="col-md-6">
+                <a href="/villains"><button id="user-compare">DISNEY VILLAINS</button></a>
+            </div>
+        </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" 
 integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" 
@@ -71,10 +76,7 @@ crossorigin="anonymous"></script>
 <script>
 $(document).ready(function(){
 
-$("#take-quiz").on("click", function(){
-    console.log("yep")
-   // form()
-})
+console.log("butt")
 })
 </script> 
 </body>

@@ -9,8 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Acme|Black+And+White+Picture|Dokdo|Gugi|Stylish" rel="stylesheet">
-    <style>
-    body {
+<style>
+body {
     background-color: white;
 }
 p {
@@ -20,7 +20,7 @@ p {
 }
 .jumbotron {
     color: lavender;
-    background-image: url("../images/stars.jpeg");
+    background-color: black;
     padding: 20px;
     border-color: white;
     border-style: solid;
@@ -43,8 +43,8 @@ button {
     margin: 20px 0px 0px 0px;
     padding: 15px 20px 15px 20px;
     border-radius: 20px;
-    background-image: url("../images/stars.jpeg");
-    color: white;
+    background-color: plum;
+    color: black;
     border-width: 2px;
 }
     </style>
@@ -154,8 +154,7 @@ button {
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select><br>
-        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
-         Submit</button>
+        <a href="/results"><button type="submit" class="btn btn-lg btn-block" id="submit">Submit</button></a>
         </div>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" 
@@ -166,10 +165,6 @@ $(document).ready(function(){
 
 $("#submit").on("click", function(){
     console.log("yep")
-    form()
-})
-        
-function form() {
     var userData = {
         photo: $("#photo").val(), 
         group: "people", 
@@ -188,7 +183,25 @@ function form() {
         ]
     }
     console.log(userData)
-}
+
+    $.post("/api/all", userData)
+    .then(function(data) {
+        console.log(data);
+    });
+
+    $("#photo").val("");
+    $("#name").val("");
+    $("#q1").val("");
+    $("#q2").val("");
+    $("#q3").val("");
+    $("#q4").val("");
+    $("#q5").val("");
+    $("#q6").val("");
+    $("#q7").val("");
+    $("#q8").val("");
+    $("#q9").val("");
+    $("#q10").val("");
+})
 })
 </script>  
 </body>

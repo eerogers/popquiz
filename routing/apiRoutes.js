@@ -1,9 +1,14 @@
 var friends = require('../public/assets/js/friends.js')
 module.exports = function(app) {
+    var dataReceived = []
     app.post("/api/people/new", function(req, res) {
-        res.json(req.body)
-        console.log(req.body)
+        dataReceived = req.body
      });
+    app.get("/api/people/new", function(req,res){
+        if(dataReceived.length !== 0){
+            res.json(dataReceived)
+        }
+    });
     app.get("/api/people", function(req, res) {
         res.json(friends.peopleArray)
     });
@@ -15,5 +20,5 @@ module.exports = function(app) {
     });
     app.get("/api/villains", function(req, res) {
         res.json(friends.villainArray)
-      });
+    });
 }

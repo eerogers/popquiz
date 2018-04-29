@@ -39,15 +39,15 @@ friendsArray: [{
     group: "friends", 
     name: "Monica",
     scores: [
+        2,
+        5,
         1,
         1,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
+        4,
+        4,
+        5,
+        2,
         1
     ]
 },
@@ -56,16 +56,16 @@ friendsArray: [{
     group: "friends", 
     name: "Rachel",
     scores: [
+        4,
+        2,
+        5,
+        3,
+        4,
+        2,
+        3,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
+        3,
+        4
     ]
 },
 {
@@ -73,33 +73,33 @@ friendsArray: [{
     group: "friends", 
     name: "Phoebe",
     scores: [
+        3,
+        3,
+        4,
+        5,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
+        4,
+        5,
+        2,
+        5,
         1
     ]
 },
 {
-    photo: "photo", 
+    photo: "./assets/images/joey.png", 
     group: "friends", 
     name: "Joey",
     scores: [
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
+        4,
+        5,
+        5,
+        4,
+        5,
+        5,
+        2,
+        5,
+        5
     ]
 },
 {
@@ -107,15 +107,15 @@ friendsArray: [{
     group: "friends", 
     name: "Ross",
     scores: [
+        4,
+        2,
         1,
+        5,
+        4,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
+        3,
+        3,
+        4,
         1
     ]
 },
@@ -124,16 +124,16 @@ friendsArray: [{
     group: "friends", 
     name: "Chandler",
     scores: [
+        4,
+        4,
+        2,
+        1,
+        5,
+        1,
+        2,
         1,
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
+        2
     ]
 }
 ],
@@ -143,15 +143,15 @@ princessArray: [{
     name: "Jasmine",
     scores: [
         1,
-        2,
-        3,
-        4,
-        5,
-        4,
-        3,
-        2,
         1,
-        2
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
     ]
 }
 ],

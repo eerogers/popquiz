@@ -22,7 +22,7 @@ app.set('view engine', 'hbs')
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ extended: true }))
 
-//app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')))
 //app.use(express.static(path.join(__dirname + 'views')))
 
 require("./routing/htmlRoutes.js")(app);

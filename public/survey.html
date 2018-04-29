@@ -20,7 +20,7 @@ p {
 }
 .jumbotron {
     color: lavender;
-    background-color: black;
+    background-image: url("./assets/images/stars.jpeg");
     padding: 20px;
     border-color: white;
     border-style: solid;
@@ -43,9 +43,10 @@ button {
     margin: 20px 0px 0px 0px;
     padding: 15px 20px 15px 20px;
     border-radius: 20px;
-    background-color: plum;
-    color: black;
+    background-image: url("./assets/images/stars.jpeg");
+    color: white;
     border-width: 2px;
+    width: 100%;
 }
     </style>
 </head>
@@ -154,7 +155,7 @@ button {
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select><br>
-    <a href="/results"><button type="submit" class="btn btn-lg btn-block" id="submit">Submit</button></a>
+    <a href="/results"><button type="submit" id="submit">Submit</button></a>
         </div>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" 
@@ -181,8 +182,10 @@ $("#submit").on("click", function(){
             $("#q10").val()
         ]
     }
-    $.post("/api/people/new", userData, function(data, status){
-    })
+$.post("/api/people/new", userData, function(data, status){
+    $.get("/api/people/new", function(data, status){
+    })    
+})
     $("#photo").val("");
     $("#name").val("");
     $("#q1").val("");
@@ -195,6 +198,7 @@ $("#submit").on("click", function(){
     $("#q8").val("");
     $("#q9").val("");
     $("#q10").val("");
+
 })
    
     //$.post("/api/people", userData)

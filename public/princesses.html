@@ -51,16 +51,15 @@ button {
 </head>
 <body>
 <div class="container">
-    <div class="jumbotron">POP QUIZ
-    </div>
+    <a href="/results"><div class="jumbotron">RESULTS
+    </div></a>
     <div class="row">
-        <div class="col-md-3">
-            <a href="/quiz"><button id="take-quiz">TAKE THE QUIZ</button></a>
+        <div class="col-md-2">
         </div>
-        <div class="col-md-9">
-            <p>Upon completing the questions in this "pop quiz", you will be able to access several different comparisons.</p> 
-            <p>You may choose to compare your results with other users, but there are also pop culture filters.</p>
-            <p>Apply as many filters as you want! Find out which Friends character you are most like! Etcetera!</p>
+        <div class="col-md-8">
+            <p>You have most in common with <span id="match"></span>!</p> 
+        </div>
+        <div class="col-md-2">
         </div>
     </div>
 </div>
@@ -69,11 +68,10 @@ integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 crossorigin="anonymous"></script>
 <script>
 $(document).ready(function(){
-
-$("#take-quiz").on("click", function(){
-    console.log("yep")
-   // form()
-})
+    $.get("/api/princesses", function(data, status){
+        var match = data[0].name;
+        $("#match").text(match)
+    });
 })
 </script> 
 </body>

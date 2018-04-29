@@ -154,7 +154,7 @@ button {
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select><br>
-        <a href="/results"><button type="submit" class="btn btn-lg btn-block" id="submit">Submit</button></a>
+    <a href="/results"><button type="submit" class="btn btn-lg btn-block" id="submit">Submit</button></a>
         </div>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" 
@@ -162,7 +162,6 @@ integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 crossorigin="anonymous"></script>
 <script>
 $(document).ready(function(){
-
 $("#submit").on("click", function(){
     console.log("yep")
     var userData = {
@@ -182,13 +181,8 @@ $("#submit").on("click", function(){
             $("#q10").val()
         ]
     }
-    console.log(userData)
-
-    $.post("/api/all", userData)
-    .then(function(data) {
-        console.log(data);
-    });
-
+    $.post("/api/people/new", userData, function(data, status){
+    })
     $("#photo").val("");
     $("#name").val("");
     $("#q1").val("");
@@ -202,6 +196,18 @@ $("#submit").on("click", function(){
     $("#q9").val("");
     $("#q10").val("");
 })
+   
+    //$.post("/api/people", userData)
+    //.then(function(data) {
+    //    console.log(data);
+    //    get()
+    //});
+    //$(selector).post(URL,data,function(data,status,xhr),dataType)
+    //function get(){
+    //    $.get("/api/people"), function(data){
+    //    console.log(data)
+    //}
+    //}
 })
 </script>  
 </body>

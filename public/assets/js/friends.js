@@ -137,7 +137,7 @@ friendsArray: [{
     ]
 }
 ],
-princessArray: {
+princessArray: [{
     photo: "something", 
     group: "princesses", 
     name: "Jasmine",
@@ -153,8 +153,9 @@ princessArray: {
         1,
         2
     ]
-},
-villainArray: {
+}
+],
+villainArray: [{
     photo: "something", 
     group: "villains", 
     name: "Jafar",
@@ -171,4 +172,5 @@ villainArray: {
         3
     ]
 }
+]
 }

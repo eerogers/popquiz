@@ -13,8 +13,19 @@ module.exports = function(app) {
     app.get("/quiz", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/survey.html"));
     });
-
     app.get("/results", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/results.html"));
+    });
+    app.get("/people", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/people.html"));
+    });
+    app.get("/friends", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/friends.html"));
+    });
+    app.get("/princesses", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/princesses.html"));
+    });
+    app.get("/villains", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/villains.html"));
     });
 };

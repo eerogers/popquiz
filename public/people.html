@@ -57,7 +57,8 @@ button {
         <div class="col-md-2">
         </div>
         <div class="col-md-8">
-            <p>You have most in common with <span id="match"></span>!</p> 
+            <p>You have most in common with <span id="match"></span>!</p>
+            <span id="pic"></span> 
         </div>
         <div class="col-md-2">
         </div>
@@ -68,35 +69,45 @@ integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
 crossorigin="anonymous"></script>
 <script>
 $(document).ready(function(){
+var userArray = []
+var matchesArray = []
     $.get("/api/people", function(data, status){
         var matches = data
         matchUp(matches);
     });
     function matchUp(matches){
         $.get("/api/people/new", function(data, status){
-            one = data.scores[0]
-            two = data.scores[1]
-            three = data.scores[2]
-            four = data.scores[3]
-            five = data.scores[4]
-            six = data.scores[5]
-            seven = data.scores[6]
-            eight = data.scores[7]
-            nine = data.scores[8]
-            ten = data.scores[9]
-            for(i=0; i<matches.length; i++){
-                console.log(Math.abs(matches[i].scores[0] - one) + Math.abs(matches[i].scores[1] - two)
-                +Math.abs(matches[i].scores[2] - three)
-                +Math.abs(matches[i].scores[3] - four)
-                +Math.abs(matches[i].scores[4] - five)
-                +Math.abs(matches[i].scores[5] - six)
-                +Math.abs(matches[i].scores[6] - seven)
-                +Math.abs(matches[i].scores[7] - eight)
-                +Math.abs(matches[i].scores[8] - nine)
-                +Math.abs(matches[i].scores[9] - ten))
+            for (i=0; i<data.scores.length; i++){
+                userArray.push(data.scores[i])
+             //   console.log(userArray)
             }
+            for (i=0; i<matches.length; i++){
+                matchesArray.push(matches[i].scores)
+                console.log(matchesArray)
+            }
+            calculateMatch()
         });
-      //  $("#match").text(match);
+        
+        function calculateMatch(){
+            var calculateArray = []
+            for(i=0; i<matchesArray.length; i++){
+               calculateArray.push(Math.abs(matches[i].scores[0] - userArray[0]) + Math.abs(matches[i].scores[1] - userArray[1])
+                    +Math.abs(matches[i].scores[2] - userArray[2])
+                    +Math.abs(matches[i].scores[3] - userArray[3])
+                    +Math.abs(matches[i].scores[4] - userArray[4])
+                    +Math.abs(matches[i].scores[5] - userArray[5])
+                    +Math.abs(matches[i].scores[6] - userArray[6])
+                    +Math.abs(matches[i].scores[7] - userArray[7])
+                    +Math.abs(matches[i].scores[8] - userArray[8])
+                    +Math.abs(matches[i].scores[9] - userArray[9]))
+            }
+            console.log(calculateArray)
+            userMatchIndex = calculateArray.indexOf(Math.min.apply(null, calculateArray))
+            console.log(userMatchIndex)
+            userMatch = matches[userMatchIndex].name
+            $("#match").text(userMatch);
+            $("#pic").html("<img src='"+ matches[userMatchIndex].photo+"' alt='"+ userMatch+"'>")
+        }
     };
 });
 </script> 

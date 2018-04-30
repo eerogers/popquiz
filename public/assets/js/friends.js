@@ -1,6 +1,6 @@
 module.exports = {
 peopleArray: [{
-    photo: "anything", 
+    photo: "./assets/images/agree.jpg", 
     group: "people", 
     name: "Mr. Agree",
     scores: [
@@ -17,7 +17,7 @@ peopleArray: [{
     ]
 },
 {
-    photo: "anything",
+    photo: "./assets/images/disagree.jpg",
     group: "people", 
     name: "Ms. Disagree",
     scores: [
@@ -35,7 +35,7 @@ peopleArray: [{
 }
 ],
 friendsArray: [{
-    photo: "photo", 
+    photo: "./assets/images/monica.jpg", 
     group: "friends", 
     name: "Monica",
     scores: [
@@ -52,7 +52,7 @@ friendsArray: [{
     ]
 },
 {
-    photo: "photo", 
+    photo: "./assets/images/rachel.jpg", 
     group: "friends", 
     name: "Rachel",
     scores: [
@@ -69,7 +69,7 @@ friendsArray: [{
     ]
 },
 {
-    photo: "photo", 
+    photo: "./assets/images/phoebe.jpg", 
     group: "friends", 
     name: "Phoebe",
     scores: [
@@ -103,7 +103,7 @@ friendsArray: [{
     ]
 },
 {
-    photo: "photo", 
+    photo: "./assets/images/ross.jpg", 
     group: "friends", 
     name: "Ross",
     scores: [
@@ -120,7 +120,7 @@ friendsArray: [{
     ]
 },
 {
-    photo: "photo", 
+    photo: "./assets/images/chandler.jpg", 
     group: "friends", 
     name: "Chandler",
     scores: [
@@ -138,7 +138,7 @@ friendsArray: [{
 }
 ],
 princessArray: [{
-    photo: "something", 
+    photo: "./assets/images/jasmine.png", 
     group: "princesses", 
     name: "Jasmine",
     scores: [
@@ -156,7 +156,7 @@ princessArray: [{
 }
 ],
 villainArray: [{
-    photo: "something", 
+    photo: "./assets/images/jafar.png", 
     group: "villains", 
     name: "Jafar",
     scores: [
